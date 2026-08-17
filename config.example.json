@@ -1,0 +1,35 @@
+{
+  "bot_name": "小深",
+  "persona_file": "persona.txt",
+
+  "ws_url": "ws://127.0.0.1:3001",
+  "deepseek_base_url": "https://api.deepseek.com",
+  "deepseek_model": "deepseek-v4-flash",
+  "ali_base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "vision_model": "qwen3.7-flash",
+  "max_images_per_message": 3,
+
+  "bot_qq": 1234567890,
+  "private_whitelist": [],
+  "group_whitelist": [],
+
+  "group_at_only": true,
+  "group_reply_probability": 0.8,
+  "group_keyword_probability": 0.7,
+  "group_active_probability": 0.6,
+  "group_default_probability": 0.1,
+  "group_active_window": 600,
+  "group_max_consecutive_replies": 5,
+  "keywords": ["小深", "猫娘"],
+
+  "reply_probability": 0.7,
+  "proactive_interval_private": [1800, 7200],
+  "proactive_interval_group": [10800, 21600],
+  "proactive_to_each": 0.5,
+
+  "memory_max_messages": 40,
+  "memory_file": "memory.json",
+  "enable_silent_hours": true,
+  "silent_hours_start": 0,
+  "silent_hours_end": 10
+}

@@ -1,0 +1,21 @@
+# 环境变量（含密钥）
+.env
+.env.local
+
+# 实际配置文件（包含个人信息）
+config.json
+persona.txt
+persona.local.txt
+
+# 记忆文件（自动生成）
+memory.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 编辑器
+.idea/
+.vscode/
