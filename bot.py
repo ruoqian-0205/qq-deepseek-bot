@@ -33,6 +33,10 @@ ALI_BASE_URL = CFG["ali_base_url"]
 VISION_MODEL = CFG["vision_model"]
 MAX_IMAGES_PER_MESSAGE = CFG["max_images_per_message"]
 
+# 固定回复语:可在 config.json 中自定义(省略时使用默认值,兼容旧配置文件)
+FALLBACK_REPLY = CFG.get("fallback_reply", "喵……刚才网络开小差了，再说一次好不好？")
+CLEAR_MEMORY_REPLY = CFG.get("clear_memory_reply", "喵~ 记忆已经清空啦，我们重新开始吧！")
+
 BOT_QQ = CFG["bot_qq"]
 PRIVATE_WHITELIST = set(CFG["private_whitelist"])
 GROUP_WHITELIST = set(CFG["group_whitelist"])
@@ -219,7 +223,7 @@ async def chat_with_deepseek(key: str, user_text: str | None = None) -> str:
         if "清空记忆" in user_text:
             memories[key] = []
             save_memory()
-            return "喵~ 记忆已经清空啦，我们重新开始吧！"
+            return CLEAR_MEMORY_REPLY
         append_memory(key, "user", user_text)
 
     system_content = build_system_content(key)
@@ -239,7 +243,7 @@ async def chat_with_deepseek(key: str, user_text: str | None = None) -> str:
         return reply
     except Exception as e:
         log.error(f"DeepSeek 调用失败: {e}")
-        fallback = "喵……刚才网络开小差了，再说一次好不好？"
+        fallback = FALLBACK_REPLY
         append_memory(key, "assistant", fallback)
         return fallback
 
@@ -404,7 +408,7 @@ async def handle_message(ws, data: dict):
         if "清空记忆" in text:
             memories[key] = []
             save_memory()
-            await send_private_msg(ws, uid, "喵~ 记忆已经清空啦，我们重新开始吧！")
+            await send_private_msg(ws, uid, CLEAR_MEMORY_REPLY)
             return
 
         append_memory(key, "user", combined_text)
@@ -430,7 +434,7 @@ async def handle_message(ws, data: dict):
         if "清空记忆" in text:
             memories[key] = []
             save_memory()
-            await send_group_msg(ws, gid, "喵~ 记忆已经清空啦，我们重新开始吧！",
+            await send_group_msg(ws, gid, CLEAR_MEMORY_REPLY,
                                  at_qq=uid if mentioned else None)
             return
 

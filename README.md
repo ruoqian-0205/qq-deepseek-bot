@@ -129,6 +129,8 @@ python bot.py --debug
 | `group_max_consecutive_replies` | `5` | 活跃期内最多连续回复条数,防止刷屏 |
 | `keywords` | `["小深", "猫娘"]` | 触发回复的关键词 |
 | `reply_probability` | `0.7` | 私聊回复概率 |
+| `fallback_reply` | `喵……刚才网络开小差了，再说一次好不好？` | 模型调用失败时的兜底回复 |
+| `clear_memory_reply` | `喵~ 记忆已经清空啦，我们重新开始吧！` | 执行"清空记忆"指令后的回复 |
 | `proactive_interval_private` | `[1800, 7200]` | 私聊主动开场白间隔范围(秒),随机取值 |
 | `proactive_interval_group` | `[10800, 21600]` | 群聊主动开场白间隔范围(秒) |
 | `proactive_to_each` | `0.5` | 每轮主动消息中,对每个对象发起概率 |
