@@ -197,3 +197,9 @@ A: 程序已内置前缀清理逻辑;若仍出现,多为模型偶发输出,可�
 - [NapCatQQ](https://github.com/NapNeko/NapCatQQ) — 提供 QQ 协议接入能力
 - [DeepSeek](https://www.deepseek.com/) — 文本大模型
 - [阿里云百炼(通义千问)](https://bailian.console.aliyun.com/) — 视觉大模型
+
+## 📄 许可证
+
+本项目基于 [MIT License](LICENSE) 开源。
+
+Copyright (c) 2026 ruoqian-0205
